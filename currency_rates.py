@@ -18,4 +18,4 @@ def get_currency_symbol(code):
 
 def convert_currency(from_curr, to_curr, amount=0):
     '''Returns the converted amount.'''
-    return cr.convert(from_curr.upper(), to_curr.upper(), float(amount))
+    return cr.convert(from_curr.upper(), to_curr.upper(), amount)
