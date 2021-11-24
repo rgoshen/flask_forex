@@ -3,8 +3,6 @@ from forex_python.converter import CurrencyCodes, CurrencyRates
 cr = CurrencyRates()
 cc = CurrencyCodes()
 
-all_currencies = list(cr.get_rates('USD').keys())
-
 
 def get_conversion_rate(from_curr, to_curr):
     '''Returns the conversion rate.'''
