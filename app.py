@@ -14,7 +14,7 @@ def get_currency_converted():
     if request.method == "POST":
         from_currency = request.form.get('from')
         to_currency = request.form.get('to')
-        amount = request.form.get('amount')
+        amount = float(request.form.get('amount'))
         to_sym = get_currency_symbol(to_currency)
         result = '{:.2f}'.format(convert_currency(
             from_currency, to_currency, amount))
