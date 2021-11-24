@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/" class="mt-5 p-5 align-items center">
+    <div class="row mb-3">
+        <label for="result" class="col-sm-4 col-form-label fs-4">Result:</label>
+        <div class="col-sm-8">
+            <input type="text" readonly class="form-control-plaintext fs-4 result" id="result" value="{{to_sym}} {{result}}" />
+        </div>
+  </div>
+   <button type="submit" class="btn btn-lg mt-3 btn-convert">Home</button>
+</form>
+{% endblock %}

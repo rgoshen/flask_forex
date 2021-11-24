@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block content %}
 <h1 id="title">Forex Converter</h1>
-<form action="/convert" class="mt-5 p-5 align-items-center">
+<form action="/convert" class="mt-5 p-5 align-items-center" method="post">
   <div class="row mb-3">
     <label for="convert-from" class="col-sm-4 col-form-label fs-4"
       >Convert from:</label
@@ -10,13 +10,21 @@
         type="text"
         class="form-control px-1 fs-4"
         id="convert-from"
+        name="from"
       />
     </div>
   </div>
   <div class="row mb-3">
     <label for="convert-to" class="col-sm-4 col-form-label fs-4">Convert to:</label>
     <div class="col-sm-8">
-      <input type="text" class="form-control px-1 fs-4" id="convert-to" />
+      <input type="text" class="form-control px-1 fs-4" id="convert-to"
+      name="to" />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="amount" class="col-sm-4 col-form-label fs-4">Amount:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control px-1 fs-4" id="amount" name="amount" />
     </div>
   </div>
   <button type="submit" class="btn btn-lg mt-3 btn-convert">Convert</button>
