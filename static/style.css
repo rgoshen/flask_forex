@@ -10,6 +10,8 @@ html {
 
 body {
   background-color: #dbebfa;
+  font-family: 'Rubik',
+  sans-serif;
 }
 
 form {
@@ -33,6 +35,7 @@ form {
 
 #title {
   color: #00334e;
+  font-weight: bold;
   text-align: center;
   margin-top: 2rem;
 }
