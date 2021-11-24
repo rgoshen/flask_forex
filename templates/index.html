@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<h1 id="title">Forex Converter</h1>
+<form action="/convert" class="mt-5 p-5 align-items-center">
+  <div class="row mb-3">
+    <label for="convert-from" class="col-sm-4 col-form-label"
+      >Convert from:</label
+    >
+    <div class="col-sm-8">
+      <input
+        type="text"
+        class="form-control px-2 form-control-lg"
+        id="convert-from"
+      />
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="convert-to" class="col-sm-4 col-form-label">Convert to:</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control px-2" id="convert-to" />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary btn-lg mt-3">Convert</button>
+</form>
+{% endblock %} {% block script %} {% endblock %}

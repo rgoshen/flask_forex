@@ -7,3 +7,24 @@
 html {
   font-size: 100%;
 }
+
+body {
+  background-color: #dbebfa;
+}
+
+form {
+  background-color: #00334e;
+  border-radius: 5px;
+  color: #dbebfa;
+  /* max-width: 70%; */
+}
+
+.form-control {
+  border-radius: 5px;
+  color: #004d73;
+}
+
+#title {
+  color: #00334e;
+  text-align: center;
+}
