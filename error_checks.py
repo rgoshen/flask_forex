@@ -1,3 +1,4 @@
+from flask import flash, session
 from forex_python.converter import CurrencyRates
 
 
@@ -23,6 +24,16 @@ def check_valid_code(code):
     all_currencies = list(cr.get_rates('USD').keys())
 
     if(not code or code not in all_currencies):
-        raise ValueError('Not a valid code')
+        raise ValueError('Not a valid code' + code)
 
     return code
+
+
+def handel_errors(val, checker, key):
+    try:
+        checked = checker(val)
+        return checked
+    except ValueError as err:
+        session[key]['valid'] = 'border border-danger'
+        flash(str(err), 'error')
+    return None

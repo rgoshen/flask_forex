@@ -4,11 +4,6 @@ cr = CurrencyRates()
 cc = CurrencyCodes()
 
 
-def get_conversion_rate(from_curr, to_curr):
-    '''Returns the conversion rate.'''
-    return cr.get_rate(from_curr.upper(), to_curr.upper())
-
-
 def get_currency_symbol(code):
     '''Returns the currency symbol.'''
     return cc.get_symbol(code.upper())
@@ -16,4 +11,4 @@ def get_currency_symbol(code):
 
 def convert_currency(from_curr, to_curr, amount=0):
     '''Returns the converted amount.'''
-    return cr.convert(from_curr.upper(), to_curr.upper(), amount)
+    return cr.convert(from_curr.upper(), to_curr.upper(), float(amount))
