@@ -18,8 +18,8 @@ def show_index():
     form = ConversionForm()
 
     if form.validate_on_submit():
-        curr_1 = form.curr_from.data
-        curr_2 = form.curr_to.data
+        curr_1 = form.curr_from.data.upper()
+        curr_2 = form.curr_to.data.upper()
         amnt = form.amount.data
         return redirect(url_for('convert', curr1=curr_1, curr2=curr_2, amount=amnt))
     else:
