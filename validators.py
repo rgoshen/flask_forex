@@ -15,13 +15,10 @@ def code_check(form, field):
     if len(field.data) != 3:
         raise ValidationError('Code must be 3 characters')
 
-    if not field.data.isupper():
-        raise ValidationError('Please provide all caps')
-
     # all currency rates codes
     rates = cr.get_rates('')
 
-    if field.data not in rates:
+    if field.data.upper() not in rates:
         raise ValidationError('Invalid code')
 
 
