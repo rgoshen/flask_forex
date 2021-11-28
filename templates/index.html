@@ -1,44 +1,22 @@
-{% extends "base.html" %} {% block content %}
-<h1 id="title">Forex Converter</h1>
-<form action="/convert" class="mt-5 p-5 align-items-center" method="post">
-  {% with messages = get_flashed_messages(with_categories=true) %}
-                        {% for category,msg in messages %}
-                            <h3 class="flash {{ category }} text-center">{{ msg }}</h3>
-                        {% endfor %}
-                        {%endwith%}
-  <div class="row mb-3">
-    <label for="convert-from" class="col-sm-4 col-form-label fs-4"
-      >Convert from:</label
-    >
-    <div class="col-sm-8">
-      <input
-        type="text"
-        class="form-control px-1 fs-4 {{session["curr_1"]["valid"]}}"
-        id="convert-from"
-        name="from"
-      />
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="convert-to" class="col-sm-4 col-form-label fs-4">Convert to:</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control px-1 fs-4 {{session['curr_2']['valid']}}" id="convert-to"
-      name="to" />
-    </div>
-  </div>
-  <div class="row mb-3">
-    <label for="amount" class="col-sm-4 col-form-label fs-4">Amount:</label>
-    <div class="col-sm-8">
-      <input type="text" class="form-control px-1 fs-4 {{session['amount']['valid']}}" id="amount" name="amount" />
-    </div>
-  </div>
-  <button type="submit" class="btn btn-lg mt-3 btn-convert">Convert</button>
-</form>
+{% from 'bootstrap/form.html' import render_field %}
+{% extends 'base.html' %}
+
+{% block header %}
+  Form
 {% endblock %}
-{% block script %}
-<script>
-    $(document).ready(function(){
-        $(".flash").delay(3000).slideUp(300);
-    });
-</script>
+{% block content %}
+<div class="container">
+  <div class="card p-1">
+    <div class="card-body">
+      <form action="/" method="post">
+        {{ form.csrf_token }}
+        {% for field in form if field.widget.input_type != 'hidden' %}
+            <div class="mb-3">
+              {{ render_field(field,button_size="block") }}
+            </div>
+        {% endfor %}
+      </form>
+    </div>
+  </div>
+</div>
 {% endblock %}

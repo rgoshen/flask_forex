@@ -1,45 +1,22 @@
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 html {
-  font-size: 100%;
+    font-size: 100%;
 }
 
-body {
-  background-color: #dbebfa;
-  font-family: 'Rubik',
-  sans-serif;
+body{
+    background-color:whitesmoke;
 }
 
-form {
-  background-color: #00334e;
-  border-radius: 5px;
-  color: #dbebfa;
-  -webkit-box-shadow: 10px 10px 40px -1px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 40px -1px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 40px -1px rgba(0, 0, 0, 0.75);
+.container{
+    margin: auto;
 }
 
-.form-control {
-  border-radius: 5px;
-  color: #004d73;
-}
-
-.btn-convert{
-  background-color: #007fbd;
-  color: #dbebfa;
-}
-
-#title {
-  color: #00334e;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.result{
-  color: #dbebfa;
+.card{
+    max-width: 30%;
+    margin: auto;
 }
