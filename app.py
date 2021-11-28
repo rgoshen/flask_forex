@@ -1,5 +1,5 @@
 from flask_bootstrap import Bootstrap
-from flask import Flask, render_template, redirect, url_for, request, jsonify
+from flask import Flask, render_template, redirect, url_for, request
 from conversion import converter, get_symbol
 from forms import ConversionForm
 
@@ -9,19 +9,6 @@ bootstrap = Bootstrap(app)
 
 app.config['SECRET_KEY'] = 'sercretkey'
 app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'sketchy'
-
-# from_code = 'INR'  # may leave blank
-# to_code = 'USD'  # cannot leave blank
-# amount = '1'
-
-# check_code(from_code)
-# check_code(to_code)
-# check_amount(amount)
-
-# conversion = converter(from_code, to_code, amount)
-# symbol = get_symbol(to_code)
-
-# print(symbol, '{:.2f}'.format(conversion))
 
 
 @app.route('/', methods=['GET', 'POST'])
