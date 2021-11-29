@@ -11,35 +11,29 @@ app.config['SECRET_KEY'] = 'sercretkey'
 app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'sketchy'
 
 
-@app.route('/', methods=['GET', 'POST'])
-def show_index():
+@app.route('/')
+def redirect_index():
+    '''Redirects to form'''
+    return redirect(url_for('convert'))
+
+
+@app.route('/convert', methods=['GET', 'POST'])
+def convert():
     '''Render index page with currency conversion form.'''
 
     form = ConversionForm()
 
     if form.validate_on_submit():
-        curr_1 = form.curr_from.data.upper()
-        curr_2 = form.curr_to.data.upper()
-        amnt = form.amount.data
-        return redirect(url_for('convert', curr1=curr_1, curr2=curr_2, amount=amnt))
-    else:
-        return render_template('index.html', form=form)
+        curr1 = form.curr_from.data.upper()
+        curr2 = form.curr_to.data.upper()
+        amount = form.amount.data
 
+        total = '{:.2f}'.format(converter(curr1, curr2, amount))
+        symbol = get_symbol(curr2)
 
-@app.route('/convert')
-def convert():
-    '''Converts the amount from one currency code
-    to another.  Returns a float value for currency and returns the symbol string.
-    '''
+        return redirect(url_for('show_results', sym=symbol, total=total))
 
-    curr1 = request.args.get('curr1')
-    curr2 = request.args.get('curr2')
-    amount = float(request.args.get('amount'))
-
-    total = '{:.2f}'.format(converter(curr1, curr2, amount))
-    symbol = get_symbol(curr2)
-
-    return redirect(url_for('show_results', sym=symbol, total=total))
+    return render_template('index.html', form=form)
 
 
 @app.route('/results')
